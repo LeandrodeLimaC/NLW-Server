@@ -15,3 +15,9 @@ npm install ts-node -D
 >Install and executes the node server with a watch flag (auto reload on save scripts changes)
 npm install ts-node-dev -D
 npx ts-node-dev src/server.ts
+
+>Install knex, for using database connections as javascript
+npm install knex
+
+>> Sqlite3, it's used to create an arhcive to store database files
+npm install sqlite3
