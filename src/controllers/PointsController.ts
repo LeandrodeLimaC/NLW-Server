@@ -50,7 +50,7 @@ class PointsController {
         }= request.body;
 
         // Não consegui rodar com o transaction 
-        // const trx = await knex.transaction();
+        const trx = await knex.transaction();
 
         const point = {
             image: 'image-fake',
@@ -63,7 +63,7 @@ class PointsController {
             uf
         }
 
-        const insertedIds = await knex('points').insert(point)
+        const insertedIds = await trx('points').insert(point)
     
         const point_id = insertedIds[0];
     
@@ -74,7 +74,9 @@ class PointsController {
             }
         })        
         
-        await knex('points_items').insert(pointItems);
+        await trx('points_items').insert(pointItems);
+        
+        await trx.commit();
         
         return response.json({
             id: point_id,
