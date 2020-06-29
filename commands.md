@@ -21,3 +21,7 @@ npm install knex
 
 >> Sqlite3, it's used to create an arhcive to store database files
 npm install sqlite3
+
+>> Installing cors to cross sharing
+npm install cors
+npm install @types/cors -D
